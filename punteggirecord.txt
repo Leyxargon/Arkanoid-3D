@@ -1,0 +1,12 @@
+Dario 20000
+Giorgia 19950
+Alex 19500
+Phil 18000
+Luke 14000
+Haley 10000
+Claire 8000
+Manny 7850
+Cameron 7800
+Mitchell 7000
+Jay 5000
+Gloria 4500
