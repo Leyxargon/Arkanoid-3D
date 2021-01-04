@@ -29,12 +29,10 @@ void Palla::setFermo(bool var) {
 
 void Palla::render() {
 	glPushMatrix();
-
-	glTranslatef(getPosx(), getPosy(), 0);
-	glScalef(raggio, raggio, raggio);
-	glColor3ub(getRosso(), getVerde(), getBlu());
-	glutSolidSphere(1, 11, 11);
-
+		glTranslatef(getPosx(), getPosy(), 0);
+		glScalef(raggio, raggio, raggio);
+		glColor3ub(getRosso(), getVerde(), getBlu());
+		glutSolidSphere(1, 11, 11);
 	glPopMatrix();
 }
 

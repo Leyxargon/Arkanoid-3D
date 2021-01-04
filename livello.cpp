@@ -22,9 +22,8 @@ list<Mattone *>::iterator Livello::end() {
 
 void Livello::render() {
 	glPushMatrix();
-	for (auto m = mattoni.begin(); m != mattoni.end(); ++m) {
-		if ((*m)->getSalute() > 0)
-			(*m)->render();
-	}
+		for (auto m = mattoni.begin(); m != mattoni.end(); ++m)
+			if ((*m)->getSalute() > 0)
+				(*m)->render();
 	glPopMatrix();
 }

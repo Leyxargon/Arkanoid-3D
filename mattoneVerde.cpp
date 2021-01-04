@@ -12,16 +12,14 @@ void MattoneVerde::render() {
 	if (texture == 0)
 		texture = loadTexture("texture/15-Breakout-Tiles.png");
 
-	glPushMatrix();
 	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+		glBindTexture(GL_TEXTURE_2D, texture);
+		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-
-	glTranslatef(getPosx(), getPosy(), 0);
-	glScalef(getDimx(), getDimy(), 2);
-	glutSolidCubeCustom(1);
-
-	glDisable(GL_TEXTURE_2D);
+		glTranslatef(getPosx(), getPosy(), 0);
+		glScalef(getDimx(), getDimy(), 2);
+		glutSolidCubeCustom(1);
 	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 }

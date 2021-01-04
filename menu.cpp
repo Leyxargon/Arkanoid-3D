@@ -60,23 +60,21 @@ void Menu::display() {
 	glColor3ub(0,0,0);
 
 	glBegin(GL_QUADS);
+		// Top Left
+		glTexCoord2f(0, 1);
+		glVertex2f(0, 0 + 600);
 
-	// Top Left
-	glTexCoord2f(0, 1);
-	glVertex2f(0, 0 + 600);
+		// Top Right
+		glTexCoord2f(1, 1);
+		glVertex2f(0 + 800, 0 + 600);
 
-	// Top Right
-	glTexCoord2f(1, 1);
-	glVertex2f(0 + 800, 0 + 600);
+		// Bottom Right
+		glTexCoord2f(1, 0);
+		glVertex2f(0 + 800, 0);
 
-	// Bottom Right
-	glTexCoord2f(1, 0);
-	glVertex2f(0 + 800, 0);
-
-	// Bottom Left
-	glTexCoord2f(0, 0);
-	glVertex2f(0, 0);
-
+		// Bottom Left
+		glTexCoord2f(0, 0);
+		glVertex2f(0, 0);
 	glEnd();
 
 	if (scena == SCORES)

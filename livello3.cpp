@@ -16,6 +16,7 @@ Livello3::Livello3() {
 			aggiungiMattone(new MattoneVerde(x, y));
 		else
 			aggiungiMattone(new MattoneBlu(x, y));
+
 		if ((x += 5) > 20) {
 			x = -20;
 			y -= 3;
@@ -35,8 +36,8 @@ void Livello3::render() {
 			++m;
 
 	glPushMatrix();
-	for (auto m = begin(); m != end(); ++m)
-		if ((*m)->getSalute() > 0)
-			(*m)->render();
+		for (auto m = begin(); m != end(); ++m)
+			if ((*m)->getSalute() > 0)
+				(*m)->render();
 	glPopMatrix();
 }

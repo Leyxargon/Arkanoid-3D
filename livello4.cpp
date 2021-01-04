@@ -34,8 +34,8 @@ void Livello4::render() {
 	}
 
 	glPushMatrix();
-	for (auto m = begin(); m != end(); ++m)
-		if ((*m)->getSalute() > 0)
-			(*m)->render();
+		for (auto m = begin(); m != end(); ++m)
+			if ((*m)->getSalute() > 0)
+				(*m)->render();
 	glPopMatrix();
 }

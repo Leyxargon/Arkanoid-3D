@@ -16,17 +16,14 @@ void MattoneOro::render() {
 	if (texture2 == 0)
 		texture2 = loadTexture("texture/14-Breakout-Tiles.png");
 
-	glPushMatrix();
 	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+		glBindTexture(GL_TEXTURE_2D, getSalute() < 2 ? texture2 : texture1);
 
-	// Render Settings
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-	glBindTexture(GL_TEXTURE_2D, getSalute() < 2 ? texture2 : texture1);
-
-	glTranslatef(getPosx(), getPosy(), 0);
-	glScalef(getDimx(), getDimy(), 2);
-	glutSolidCubeCustom(1);
-
-	glDisable(GL_TEXTURE_2D);
+		glTranslatef(getPosx(), getPosy(), 0);
+		glScalef(getDimx(), getDimy(), 2);
+		glutSolidCubeCustom(1);
 	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 }

@@ -66,47 +66,46 @@ void Arkanoid::renderHUD() {
 	glDisable(GL_TEXTURE_2D);
 	// scrittura punti
 	glPushMatrix();
-	// scrittura 1UP
-	glColor3ub(255, 0, 0);
-	glRasterPos2d(cam3D ? 29 : -20, cam3D ? 7 : 22);
-	glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) "1UP");
+		// scrittura 1UP
+		glColor3ub(255, 0, 0);
+		glRasterPos2d(cam3D ? 29 : -20, cam3D ? 7 : 22);
+		glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) "1UP");
 
-	// scrittura cifra vite
-	glColor3ub(255, 255, 255);
-	glRasterPos2d(cam3D ? 28.3 : -20, cam3D ? 5 : 21);
-	glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) to_string(punteggio).c_str());
+		// scrittura cifra vite
+		glColor3ub(255, 255, 255);
+		glRasterPos2d(cam3D ? 28.3 : -20, cam3D ? 5 : 21);
+		glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) to_string(punteggio).c_str());
 	glPopMatrix();
 
 	// scrittura punteggio massimo
 	glPushMatrix();
-	// scrittura HIGH SCORE
-	glColor3ub(255, 0, 0);
-	glRasterPos2f(cam3D ? 29 : -2, cam3D ? 17 : 22);
-	glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) (cam3D ? "HIGH\n SCORE" : "HIGH SCORE"));
-	// scrittura punteggio
-	glColor3ub(255, 255, 255);
-	glRasterPos2d(cam3D ? 29 : -2, cam3D ? 12 : 21);
-	glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) (punteggio > topPunteggi.getPunteggioCampione() ? to_string(punteggio).c_str() : to_string(topPunteggi.getPunteggioCampione()).c_str()));
+		// scrittura HIGH SCORE
+		glColor3ub(255, 0, 0);
+		glRasterPos2f(cam3D ? 29 : -2, cam3D ? 17 : 22);
+		glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) (cam3D ? "HIGH\n SCORE" : "HIGH SCORE"));
+		// scrittura punteggio
+		glColor3ub(255, 255, 255);
+		glRasterPos2d(cam3D ? 29 : -2, cam3D ? 12 : 21);
+		glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) (punteggio > topPunteggi.getPunteggioCampione() ? to_string(punteggio).c_str() : to_string(topPunteggi.getPunteggioCampione()).c_str()));
 	glPopMatrix();
 
 	// scrittura punteggio
 	glPushMatrix();
-	// scrittura STAGE
-	glColor3ub(255, 0, 0);
-	glRasterPos2d(cam3D ? 28 : 16, cam3D ? -16 : 22);
-	glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) "STAGE");
-	// scrittura livello
-	glColor3ub(255, 255, 255);
-
-	glRasterPos2d(cam3D ? 32 : 16, cam3D ? -17 : 21);
-	glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) to_string(i_livello + 1).c_str());
+		// scrittura STAGE
+		glColor3ub(255, 0, 0);
+		glRasterPos2d(cam3D ? 28 : 16, cam3D ? -16 : 22);
+		glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) "STAGE");
+		// scrittura livello
+		glColor3ub(255, 255, 255);
+		glRasterPos2d(cam3D ? 32 : 16, cam3D ? -17 : 21);
+		glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) to_string(i_livello + 1).c_str());
 	glPopMatrix();
 
 	if (pausa) {
 		glPushMatrix();
-		glColor3ub(255, 255, 255);
-		glRasterPos2f(-2, -10);
-		glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) "PAUSE");
+			glColor3ub(255, 255, 255);
+			glRasterPos2f(-2, -10);
+			glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) "PAUSE");
 		glPopMatrix();
 	}
 	// vite
@@ -135,7 +134,7 @@ void Arkanoid::renderScene() {
 
 		if (!palla.getFermo()) {
 			glPushMatrix();
-			palla.render();
+				palla.render();
 			glPopMatrix();
 
 			// movimento palla
@@ -178,11 +177,9 @@ void Arkanoid::renderScene() {
 	else if (vite == 0) {
 		// visualizza scritta GAME OVER
 		glPushMatrix();
-
-		glColor3ub(255, 255, 255);
-		glRasterPos2f(-3, -10);
-		glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) "GAME OVER");
-
+			glColor3ub(255, 255, 255);
+			glRasterPos2f(-3, -10);
+			glutBitmapString(GLUT_BITMAP_9_BY_15, (unsigned char *) "GAME OVER");
 		glPopMatrix();
 	}
 
@@ -196,11 +193,9 @@ void Arkanoid::renderScene() {
 		palla.setFermo(true);
 
 		glPushMatrix();
-
-		glColor3ub(255, 255, 255);
-		glRasterPos2f(-3.5, 0);
-		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char *) "VICTORY");
-
+			glColor3ub(255, 255, 255);
+			glRasterPos2f(-3.5, 0);
+			glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char *) "VICTORY");
 		glPopMatrix();
 	}
 
@@ -216,18 +211,18 @@ void Arkanoid::renderScene() {
 
 	// bordo dx
 	glPushMatrix();
-	glColor3ub(147, 147, 147);
-	glTranslated(BORDODX, -4.0, 0.0);
-	glScaled(2, 42, 3);
-	glutSolidCubeCustom(1);
+		glColor3ub(147, 147, 147);
+		glTranslated(BORDODX, -4.0, 0.0);
+		glScaled(2, 42, 3);
+		glutSolidCubeCustom(1);
 	glPopMatrix();
 
 	//bordo sx
 	glPushMatrix();
-	glColor3ub(147, 147, 147);
-	glTranslated(BORDOSX, -4.0, 0.0);
-	glScaled(2, 42, 3);
-	glutSolidCubeCustom(1);
+		glColor3ub(147, 147, 147);
+		glTranslated(BORDOSX, -4.0, 0.0);
+		glScaled(2, 42, 3);
+		glutSolidCubeCustom(1);
 	glPopMatrix();
 
 	if (bordo_o == 0)
@@ -238,47 +233,44 @@ void Arkanoid::renderScene() {
 	glBindTexture(GL_TEXTURE_2D, bordo_o);
 
 	glPushMatrix();
-	glColor3ub(147, 147, 147);
-	glTranslated(0.0, BORDOSU, 0.0);
-	glScaled(BORDODX * 2 + 2, 2, 3);
-	glutSolidCubeCustom(1);
+		glColor3ub(147, 147, 147);
+		glTranslated(0.0, BORDOSU, 0.0);
+		glScaled(BORDODX * 2 + 2, 2, 3);
+		glutSolidCubeCustom(1);
+	glPopMatrix();
 
 	glDisable(GL_TEXTURE_2D);
-	glPopMatrix();
 
 	if (sfondo == 0)
 		sfondo = loadTexture("texture/sfondo.png");
 
 	// sfondo del gioco
-	glPushMatrix();
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, sfondo);
+	glPushMatrix();
+		glBindTexture(GL_TEXTURE_2D, sfondo);
 
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
-	glTranslated(0.0, 0.0, -2.0);
-	glBegin(GL_QUADS);
+		glTranslated(0.0, 0.0, -2.0);
+		glBegin(GL_QUADS);
+			// nord ovest
+			glTexCoord2f(0, 1);
+			glVertex2f(BORDOSX, BORDOSU);
 
-	// nord ovest
-	glTexCoord2f(0, 1);
-	glVertex2f(BORDOSX, BORDOSU);
+			// nord est
+			glTexCoord2f(1, 1);
+			glVertex2f(BORDODX, BORDOSU);
 
-	// nord est
-	glTexCoord2f(1, 1);
-	glVertex2f(BORDODX, BORDOSU);
+			// sud est
+			glTexCoord2f(1, 0);
+			glVertex2f(BORDODX, BORDOGIU - 7);
 
-	// sud est
-	glTexCoord2f(1, 0);
-	glVertex2f(BORDODX, BORDOGIU - 7);
-
-	// sud ovest
-	glTexCoord2f(0, 0);
-	glVertex2f(BORDOSX, BORDOGIU - 7);
-
-	glEnd();
-
-	glDisable(GL_TEXTURE_2D);
+			// sud ovest
+			glTexCoord2f(0, 0);
+			glVertex2f(BORDOSX, BORDOGIU - 7);
+		glEnd();
 	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 }
 
 void Arkanoid::display() {
@@ -372,7 +364,7 @@ void Arkanoid::keyboard(unsigned char key, int x, int y) {
 		else if (palla.getFermo() && vite > 0 && !pausa)
 			palla.setFermo(false);
 		break;
-	/*
+	
 	case '+':
 		++i_livello;
 		livello = livelli.at(i_livello);
@@ -381,7 +373,7 @@ void Arkanoid::keyboard(unsigned char key, int x, int y) {
 		--i_livello;
 		livello = livelli.at(i_livello);
 		break;
-	*/
+	
 	}
 }
 

@@ -11,19 +11,17 @@ MattoneInvisibile::MattoneInvisibile(float x, float y) : Mattone(x, y) {
 void MattoneInvisibile::render() {
 	if (texture == 0)
 		texture = loadTexture("texture/08-Breakout-Tiles.png");
+
 	if (getSalute() == 1) {
-		glPushMatrix();
 		glEnable(GL_TEXTURE_2D);
+		glPushMatrix();
+			glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+			glBindTexture(GL_TEXTURE_2D, texture);
 
-		// Render Settings
-		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-		glBindTexture(GL_TEXTURE_2D, texture);
-
-		glTranslatef(getPosx(), getPosy(), 0);
-		glScalef(getDimx(), getDimy(), 2);
-		glutSolidCubeCustom(1);
-
-		glDisable(GL_TEXTURE_2D);
+			glTranslatef(getPosx(), getPosy(), 0);
+			glScalef(getDimx(), getDimy(), 2);
+			glutSolidCubeCustom(1);
 		glPopMatrix();
+		glDisable(GL_TEXTURE_2D);
 	}
 }

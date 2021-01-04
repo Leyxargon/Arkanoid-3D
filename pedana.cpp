@@ -33,36 +33,32 @@ void Pedana::render() {
 	if (texture == 0)
 		texture = loadTexture("texture/pedana.png");
 
-	glPushMatrix();
 	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+		glBindTexture(GL_TEXTURE_2D, texture);
+		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-
-	glTranslatef(getPosx() + getDimx() / 2, getPosy() + getDimy() / 2, 0);
-	glScalef(getDimx(), getDimy(), 2);
-	glColor3ub(getRosso(), getVerde(), getBlu());
-	glutSolidCubeCustom(1);
-
-	glDisable(GL_TEXTURE_2D);
+		glTranslatef(getPosx() + getDimx() / 2, getPosy() + getDimy() / 2, 0);
+		glScalef(getDimx(), getDimy(), 2);
+		glColor3ub(getRosso(), getVerde(), getBlu());
+		glutSolidCubeCustom(1);
 	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 }
 
 void Pedana::renderVita() {
 	if (texture == 0)
 		texture = loadTexture("texture/pedana.png");
 
-	glPushMatrix();
 	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+		glBindTexture(GL_TEXTURE_2D, texture);
+		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-
-	glTranslatef(getPosx() + 4, getPosy() + 1.3, 0);
-	glScalef(getDimx(), getDimy(), 2);
-	glColor3ub(getRosso(), getVerde(), getBlu());
-	glutSolidCubeCustom(0.2);
-
-	glDisable(GL_TEXTURE_2D);
+		glTranslatef(getPosx() + 4, getPosy() + 1.3, 0);
+		glScalef(getDimx(), getDimy(), 2);
+		glColor3ub(getRosso(), getVerde(), getBlu());
+		glutSolidCubeCustom(0.2);
 	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 }
